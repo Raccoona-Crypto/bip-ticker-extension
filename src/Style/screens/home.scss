@@ -1,0 +1,311 @@
+.home-screen {
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px;
+}
+
+.current-ticker {
+    flex: 1;
+    background-color: white;
+    height: $window-height - 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        padding: 16px 8px;
+
+        &-label {
+
+        }
+    }
+
+    &__bugged {
+        padding: 0 16px;
+    }
+
+    &__price {
+        font-size: 20px;
+        font-weight: 600;
+        display: block;
+        position: relative;
+        width: 100%;
+        line-height: 1;
+        color: $color-kuna-dark-blue;
+
+        &-separator {
+            display: inline-block;
+            margin: 0 4px;
+        }
+
+        &-currency {
+            bottom: 0;
+            margin-bottom: 3px;
+            margin-left: 2px;
+            font-weight: 400;
+            font-size: 16px;
+            color: $color-shuttle-gray;
+        }
+    }
+
+    &__market {
+        position: absolute;
+        right: 16px;
+        top: 0;
+        display: block;
+
+        &-link {
+            transition: all 0.4s;
+            font-size: 12px;
+            text-decoration: underline;
+            color: $color-shuttle-gray;
+            display: inline-block;
+            line-height: 20px;
+
+            &:hover {
+                transition: all 0.2s;
+                color: darken($color-shuttle-gray, 5%);
+            }
+        }
+    }
+
+    &__info {
+        &-container {
+            margin-top: 8px;
+            padding: 0 16px 16px 16px;
+        }
+
+        display: inline-block;
+        width: 50%;
+        padding: 0;
+        margin-top: 16px;
+
+        &-label {
+            display: block;
+            color: $color-gull-gray;
+            font-weight: 600;
+            font-size: 10px;
+            letter-spacing: 0.8px;
+        }
+
+        &-value {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.8px;
+
+            &.-red {
+                color: $color-danger;
+            }
+
+            &.-green {
+                color: $color-success;
+            }
+        }
+    }
+
+    &-tabs {
+        font-size: 12px;
+        display: flex;
+        padding: 12px 0 4px 0;
+
+        &__item {
+            transition: all 0.2s;
+            line-height: 14px;
+            font-weight: 400;
+            margin-right: 12px;
+            cursor: pointer;
+            color: $color-gull-gray;
+            text-decoration: none;
+
+            &:after {
+                transition: all 0.2s;
+                position: absolute;
+                content: '';
+                display: block;
+                height: 0;
+                width: 100%;
+                bottom: -5px;
+                background: $color-kuna-dark-blue;
+            }
+
+            &.-active {
+                color: $color-shuttle-gray;
+
+                &:after {
+                    height: 2px;
+                }
+            }
+        }
+    }
+}
+
+.daily-change {
+    display: inline-block;
+    margin: 4px 0;
+    font-size: 14px;
+    font-weight: 500;
+
+    &.-up {
+        color: $color-success;
+    }
+
+    &.-down {
+        color: $color-danger;
+    }
+}
+
+.market-list {
+    transition: all 0.4s;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    width: 160px;
+    height: $window-height;
+    overflow-y: scroll;
+    z-index: 10;
+
+    &__separator {
+        color: white;
+        margin: 8px 0 0 0;
+        padding: 4px 0 12px 0;
+
+        &-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        &-volume {
+            margin-top: 4px;
+            font-size: 12px;
+        }
+    }
+
+    &__item + &__separator {
+        margin-top: 10px;
+        padding-top: 12px;
+    }
+
+    &__item + &__item {
+        margin-top: 10px;
+    }
+
+    &__item {
+        transition: all 0.2s;
+        background-color: white;
+        border-radius: 5px;
+        position: relative;
+        padding: 8px;
+        font-size: 14px;
+        margin-bottom: 2px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+
+        &:hover {
+            background-color: rgb(245, 245, 245);
+        }
+
+        &-name {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 12px;
+
+            .base-asset,
+            .asset-separator,
+            .quote-asset {
+                display: inline-block;
+                vertical-align: center;
+            }
+
+            .base-asset {
+                font-weight: 500;
+            }
+
+            .asset-separator {
+                font-weight: 500;
+                margin: 0 3px;
+            }
+
+            .quote-asset {
+                font-weight: 400;
+                color: $color-gull-gray;
+            }
+        }
+
+        &-icon {
+            height: 16px;
+            width: 16px;
+            margin-right: 8px;
+        }
+
+        &-no-icon {
+
+        }
+
+        &-price {
+            font-size: 12px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: $color-dark-gray;
+
+            &-value {
+            }
+
+            &-percentage {
+                margin-top: 1px;
+                font-size: 10px;
+
+                &.-up {
+                    color: $color-success;
+                }
+                &.-down {
+                    color: $color-danger;
+                }
+            }
+        }
+
+        &.-active {
+            &:after {
+                display: block;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 4px;
+                background-color: $color-success;
+            }
+        }
+    }
+}
+
+.compare-mode {
+    &__container {
+        display: flex;
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+
+    &__btn {
+        padding: 5px 10px;
+        background-color: $color-all-ocean;
+
+        &.-active {
+            background-color: $color-alto;
+        }
+
+        &:first-child {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+}
