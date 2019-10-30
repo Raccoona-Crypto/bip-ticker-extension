@@ -85,7 +85,7 @@
         "react-redux": "5.0.6",
         "react-router": "4.3.1",
         "react-router-dom": "4.3.1",
-        "react-svg": "2.2.5",
+        "react-svg": "10.0.23",
         "recompose": "0.28.2",
         "redux": "3.7.2",
         "reselect": "3.0.1",
