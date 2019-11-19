@@ -3,17 +3,18 @@
 @import "cleaner";
 
 html {
-    width: 540px;
-    max-width: 540px;
+    width: $window-height;
+    max-width: 200px;
 }
 
 body {
-    width: 540px;
-    height: 400px;
+    width: $window-height;
+    height: 150px;
     overflow: hidden;
-    font-size: 16px;
-    background: $color-kuna-blue;
-    color: $color-dark-gray;
+    font-size: 14px;
+    line-height: 1.45;
+    background: $color-blue;
+    color: $color-gray05;
     font-family: $font;
     font-weight: 500;
 
@@ -58,5 +59,3 @@ body {
 }
 
 @import "screens/home";
-@import "screens/calculator";
-@import "screens/arbitrage";

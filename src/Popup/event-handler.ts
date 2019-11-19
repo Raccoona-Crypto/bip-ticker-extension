@@ -12,9 +12,7 @@ ExtensionPlatform.getExtension().extension.onMessage.addListener((request, sende
 
     switch (event) {
         case Events.UPDATE_TICKER: {
-            if ('key' in payload) {
-                store.dispatch(TickerActions.updateTicker(payload));
-            }
+            store.dispatch(TickerActions.updateTicker(payload));
             break;
         }
 

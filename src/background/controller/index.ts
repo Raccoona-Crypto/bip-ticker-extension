@@ -1,7 +1,8 @@
 import Redux from 'redux';
-import { each } from 'lodash';
+import moment from 'moment';
 import bipClient from 'Core/bip-client';
 import { IStore } from 'Core/Interfaces';
+import { TickerActions } from 'Core/actions';
 
 
 export class RootController {
@@ -11,20 +12,23 @@ export class RootController {
         this.store = store;
 
         this.tickerUpdater();
-        setInterval(() => this.tickerUpdater(), 60 * 1000);
     }
 
 
     protected async tickerUpdater() {
         const ticker = await bipClient.getPrice();
+        const history = await bipClient.getHistory();
 
-        this.store.dispatch(this.updateTicker(ticker));
-    }
+        const updateIn = moment(ticker.nextUpdate).diff(moment.now());
 
-    protected updateTicker(ticker: any) {
-        return {
-            type: 'UPDATE_TICKER',
-            ticker: ticker,
-        };
+        if (updateIn && updateIn > 0) {
+            setTimeout(
+                () => this.tickerUpdater(),
+                updateIn + 1000,
+            );
+        }
+
+        this.store.dispatch(TickerActions.updateTicker(ticker));
+        this.store.dispatch(TickerActions.updateHistory(history));
     }
 }

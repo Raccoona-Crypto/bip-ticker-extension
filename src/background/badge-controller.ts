@@ -34,9 +34,8 @@ export default class BadgeController {
         });
 
         browserAction.setTitle({
-            title: 'Kuna Ticker: ' +
-            `${ticker.baseAsset} / ${ticker.quoteAsset}` +
-            ` - ${Numeral(ticker.price).format(ticker.format)}`,
+            title: 'BIP Price: ' +
+                `$${Numeral(ticker.price).format('0,0.00[00]')}`,
         });
     }
 }

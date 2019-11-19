@@ -1,7 +1,6 @@
 enum ActionTypes {
-    FETCH_TICKERS = 'FETCH_TICKERS',
     UPDATE_TICKER = 'UPDATE_TICKER',
-    SET_CURRENT_TICKER = 'SET_CURRENT_TICKER'
+    UPDATE_HISTORY = 'UPDATE_HISTORY',
 }
 
 export default ActionTypes;

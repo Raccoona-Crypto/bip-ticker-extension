@@ -9,41 +9,36 @@ Numeral.zeroFormat('0');
 Numeral.nullFormat('0');
 Numeral.register('locale', 'ua', {
     delimiters: {
-        thousands: ' ',
-        decimal: '.'
+        thousands: ',',
+        decimal: '.',
     },
     abbreviations: {
         thousand: 'k',
         million: 'm',
         billion: 'b',
-        trillion: 't'
+        trillion: 't',
     },
-    ordinal : function (number: number) {
+    ordinal: function (number: number) {
         return number === 1 ? 'er' : 'ème';
     },
     currency: {
-        symbol: '$'
-    }
+        symbol: '$',
+    },
 });
 
 // switch between locales
 numeral.locale('ua');
 
-export type AppProps = {
-}
+export type AppProps = {}
 
 export type AppState = {
     ready: boolean;
 }
 
 export class PopupApplication extends React.PureComponent<AppProps, AppState> {
-    public constructor(props: any, context) {
-        super(props, context);
-
-        this.state = {
-            ready: false,
-        };
-    }
+    public state: AppState = {
+        ready: false,
+    };
 
     public componentDidMount(): void {
         proxyStore.ready(() => {

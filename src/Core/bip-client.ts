@@ -5,8 +5,13 @@ export type BIPPrice = {
     delta: number,
     nextUpdate: Date;
     price: number;
-
+    btcPrice: number;
 }
+
+export type BIPHistory = Array<{
+    price: number;
+    timestamp: string;
+}>;
 
 class BipClient {
     protected client: AxiosInstance;
@@ -22,11 +27,19 @@ class BipClient {
         const { data } = await this.client.get('/api/price');
 
         return {
-            averageTradesPrice: data.average_trades_price,
-            delta: data.delta,
-            nextUpdate: new Date(data.next_update),
-            price: data.price / 1000,
+            price: data.data.price / 10000,
+            averageTradesPrice: data.data.average_trades_price,
+            delta: data.data.delta,
+            nextUpdate: new Date(data.data.next_update),
+            btcPrice: data.data.btc_price,
         };
+    }
+
+
+    public async getHistory(): Promise<BIPHistory> {
+        const { data } = await this.client.get('/api/priceChart');
+
+        return data.data as BIPHistory;
     }
 }
 

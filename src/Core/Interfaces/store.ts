@@ -1,9 +1,12 @@
+import { BIPPrice, BIPHistory } from 'Core/bip-client';
+
 export interface IGlobalStore {
 
 }
 
 export interface ITickerStore {
-    bipTicker: any;
+    bipTicker?: BIPPrice;
+    history?: BIPHistory;
 }
 
 export interface IStore {

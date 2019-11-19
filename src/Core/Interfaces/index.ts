@@ -1,2 +1,2 @@
-export { IStore, ITickerStore, IGlobalStore } from './store';
-export { OHLCInterface, DepthInterface, TickerInterface } from './TickerInterface';
+export * from './store';
+export * from './TickerInterface';
