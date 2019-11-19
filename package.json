@@ -86,7 +86,7 @@
         "react-router": "4.3.1",
         "react-router-dom": "4.3.1",
         "react-sparklines": "^1.7.0",
-        "react-svg": "2.2.5",
+        "react-svg": "2.2.18",
         "recompose": "0.28.2",
         "redux": "3.7.2",
         "reselect": "3.0.1",
