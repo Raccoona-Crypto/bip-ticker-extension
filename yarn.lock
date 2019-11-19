@@ -8547,10 +8547,10 @@ react-sparklines@^1.7.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-svg@2.2.5:
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-2.2.5.tgz#8bc31cac72c0a24199fce66e66fcbc1d1bebb75b"
-  integrity sha512-gYpsS0EUSm/EP1ipsR+qrVtTX2FhwbsHsUEUq9oFXuyVDja0Q5y8LltTLeUc3jW7XTepj1ilcnDKgiA/o8PGtw==
+react-svg@2.2.18:
+  version "2.2.18"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-2.2.18.tgz#78985d5db84813d8e57f5e762951246774bf8644"
+  integrity sha512-Hm+PJYxfZ4FIWyI3xypvyrrt+qbhCaDHKPiYv3Aen57xMjhtESKYQArkGVmn2O7W+lROLCjFfp+NnivULBtxxw==
   dependencies:
     svg-injector "^1.1.3"
 
